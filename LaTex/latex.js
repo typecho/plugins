@@ -5,7 +5,7 @@
 		var node = latex[i];
 		var latex_image = document.createElement("img");
 		latex_image.src = "http://latex.codecogs.com/png.latex?"+ node.innerHTML;
-
+		// replace with image
 		var parent = node.parentNode;
 		parent.insertBefore(latex_image, node);
 		parent.removeChild(node);
