@@ -41,7 +41,7 @@ class GoogleAnalytics_Plugin implements Typecho_Plugin_Interface
     public static function config(Typecho_Widget_Helper_Form $form)
     {
         /** 分类名称 */
-        $account = new Typecho_Widget_Helper_Form_Element_Text('account', NULL, 'UA-XXXXXXX-X', _t('Google Analytics 帐号'));
+        $account = new Typecho_Widget_Helper_Form_Element_Text('account', NULL, 'UA-XXXXXXX-X', _t('Google Analytics 帐号'), _t('此帐号可在 GA 管理平台查询；格式为 UA-XXXXXXX-X 。'));
         $form->addInput($account);
     }
     
