@@ -1,8 +1,8 @@
 <?php
 /**
- * 将 Wordpress 数据库中的数据转换为 Typecho
+ * 将 WordPress 数据库中的数据转换为 Typecho
  * 
- * @package Wordpress to Typecho
+ * @package WordPress to Typecho
  * @author qining
  * @version 1.0.3 Beta
  * @link http://typecho.org
@@ -29,9 +29,9 @@ class WordpressToTypecho_Plugin implements Typecho_Plugin_Interface
         }
 		*/
     
-        Helper::addPanel(1, 'WordpressToTypecho/panel.php', _t('从Wordpress导入数据'), _t('从Wordpress导入数据'), 'administrator');
+        Helper::addPanel(1, 'WordpressToTypecho/panel.php', _t('从 WordPress 导入数据'), _t('从 WordPress 导入数据'), 'administrator');
         Helper::addAction('wordpress-to-typecho', 'WordpressToTypecho_Action');
-        return _t('请在插件设置里设置 Wordpress 所在的数据库参数') . $error;
+        return _t('请在插件设置里设置 WordPress 所在的数据库参数') . $error;
     }
     
     /**
@@ -58,11 +58,11 @@ class WordpressToTypecho_Plugin implements Typecho_Plugin_Interface
     public static function config(Typecho_Widget_Helper_Form $form)
     {
         $host = new Typecho_Widget_Helper_Form_Element_Text('host', NULL, 'localhost',
-        _t('数据库地址'), _t('请填写 Wordpress 所在的数据库地址'));
+        _t('数据库地址'), _t('请填写 WordPress 所在的数据库地址'));
         $form->addInput($host->addRule('required', _t('必须填写一个数据库地址')));
         
         $port = new Typecho_Widget_Helper_Form_Element_Text('port', NULL, '3306',
-        _t('数据库端口'), _t('Wordpress 所在的数据库服务器端口'));
+        _t('数据库端口'), _t('WordPress 所在的数据库服务器端口'));
         $port->input->setAttribute('class', 'mini');
         $form->addInput($port->addRule('required', _t('必须填写数据库端口'))
         ->addRule('isInteger', _t('端口号必须是纯数字')));
@@ -75,12 +75,12 @@ class WordpressToTypecho_Plugin implements Typecho_Plugin_Interface
         _t('数据库密码'));
         $form->addInput($password);
         
-        $database = new Typecho_Widget_Helper_Form_Element_Text('database', NULL, 'Wordpress',
-        _t('数据库名称'), _t('Wordpress 所在的数据库名称'));
+        $database = new Typecho_Widget_Helper_Form_Element_Text('database', NULL, 'wordpress',
+        _t('数据库名称'), _t('WordPress 所在的数据库名称'));
         $form->addInput($database->addRule('required', _t('您必须填写数据库名称')));
     
         $prefix = new Typecho_Widget_Helper_Form_Element_Text('prefix', NULL, 'wp_',
-        _t('表前缀'), _t('所有 Wordpress 数据表的前缀'));
+        _t('表前缀'), _t('所有 WordPress 数据表的前缀'));
         $form->addInput($prefix->addRule('required', _t('您必须填写表前缀')));
     }
     
