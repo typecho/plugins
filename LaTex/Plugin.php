@@ -4,7 +4,7 @@
  * 
  * @package LaTex
  * @author mutoo
- * @version 1.0.0
+ * @version 1.1.0
  * @link http://blog.mutoo.im/LaTex.html
  */
 class LaTex_Plugin implements Typecho_Plugin_Interface
@@ -39,7 +39,10 @@ class LaTex_Plugin implements Typecho_Plugin_Interface
      * @param Typecho_Widget_Helper_Form $form 配置面板
      * @return void
      */
-    public static function config(Typecho_Widget_Helper_Form $form){}
+    public static function config(Typecho_Widget_Helper_Form $form){
+        $mark = new Typecho_Widget_Helper_Form_Element_Text('mark', NULL, 'latex', _t('自定义标记'), _t('在 Markdown 语法环境下使用以下代码进行公式转换：<blockquote>```自定义标记<br/>公式<br/>```</blockquote>'));
+        $form->addInput($mark);
+    }
     
     /**
      * 个人用户的配置面板
@@ -60,5 +63,7 @@ class LaTex_Plugin implements Typecho_Plugin_Interface
     public static function footer() {
         $jsUrl = Helper::options()->pluginUrl . '/LaTex/latex.js';
         echo '<script type="text/javascript" src="'. $jsUrl .'"></script>';
+        $mark = Typecho_Widget::widget('Widget_Options')->plugin('LaTex')->mark;
+        echo '<script type="text/javascript">latex.parse("'. $mark. '");</script>';
     }
 }
