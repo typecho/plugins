@@ -28,7 +28,7 @@ class GitHubGit_Plugin implements Typecho_Plugin_Interface
         }
     
         Helper::addAction(github_git, 'GitHubGit_Action');
-        return _t('请在插件设置里设置 GitHub 的Git参数') . $error;
+        return _t('安装成功') . $error;
     }
     
     /**
@@ -51,12 +51,7 @@ class GitHubGit_Plugin implements Typecho_Plugin_Interface
      * @param Typecho_Widget_Helper_Form $form 配置面板
      * @return void
      */
-    public static function config(Typecho_Widget_Helper_Form $form)
-    {
-        $basePath = new Typecho_Widget_Helper_Form_Element_Text('basePath', NULL, '/_posts',
-        _t('Git目录'), _t('填写需要监控的Git目录')); // 默认为Jekyll的_posts目录
-        $form->addInput($basePath->addRule('required', _t('必须填写数据库用户名')));
-    }
+    public static function config(Typecho_Widget_Helper_Form $form){}
     
     /**
      * 个人用户的配置面板
