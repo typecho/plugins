@@ -38,14 +38,42 @@ That is:
 Usage
 -----
 
-- Add new posts in your git repository.
+This plugin is roughly jekyll compatible.
+You just need to do as you normally do in jekyll.
+
+- Add a new post in the `_posts` directory of your git repository.
 - Commit and push to GitHub.
+ 
+Your new post will be published in typecho automatically.
 
-Done. Your new post will be published in typecho automatically:
+Post format
+-----------
 
-- Use your file name as post title.
-- Use your file content as post text.
-- Under the default category (which you can change it later).
+Example:
 
-Note: if you want some format, you need to use html tags.
-Markdown support may be added in future version.
+```yaml
+---
+title: your blog title
+tags: apple orange
+categroy: life
+---
+
+Write you posts in *markdown*.
+```
+
+If you have used jekyll before, you will find this format familiar.
+
+But there are some differencs:
+
+- Only support markdown markup.
+- No self defined field.
+- No support for `layout`, `published` and `permalink`. (We will use filename as permalink slug.)
+- `category` only allows one value, since Typecho only allows one.
+- `tags` only support space-separated strings. YAML list is not supported.
+
+
+Bugs
+----
+
+[#9](https://github.com/weakish/plugins/issues/9) `git add` multiple files to repostiory, then push. Only the first file will be published into typecho. 
+
