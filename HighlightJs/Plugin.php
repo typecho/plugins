@@ -130,7 +130,9 @@ for (var i = 0; i < codes.length; i ++) {
                     }
                 }
 
-                if (!!finalLang) {
+                if (["plain", "text", "txt"].indexOf(lang) != -1) {
+                    code.className = code.className.replace(/ *\blang-(plain|text|txt)\b/ig, "no-highlight");                                    
+                } else if (!!finalLang) {
                     var result = hljs.highlight(finalLang, code.textContent, true);
                     code.innerHTML = result.value;
                     highlighted = true;
