@@ -172,6 +172,17 @@ class WordpressToTypecho_Action extends Typecho_Widget implements Widget_Interfa
             $j = 0;
             
             while ($row = $db->fetchRow($result)) {
+            	$post_status = 'publish';
+                $post_type = 'page' == $row['post_type'] ? 'page' : 'post';
+	        switch ($row['post_status']) {
+	            case 'private':
+	                $post_status = 'private';
+	                break;
+	            case 'auto-draft':
+	                $post_type = 'post_draft';
+	                break;
+	        }
+                    
                 $contents->insert(array(
                     'cid'           =>  $row['ID'],
                     'title'         =>  $row['post_title'],
@@ -182,8 +193,8 @@ class WordpressToTypecho_Action extends Typecho_Widget implements Widget_Interfa
                     'order'         =>  $row['menu_order'],
                     'authorId'      =>  $row['post_author'],
                     'template'      =>  NULL,
-                    'type'          =>  'page' == $row['post_type'] ? 'page' : 'post',
-                    'status'        =>  'publish' == $row['post_status'] ? 'publish' : 'draft',
+                    'type'          =>  $post_type,
+                    'status'        =>  $post_status,
                     'password'      =>  $row['post_password'],
                     'commentsNum'   =>  $row['comment_count'],
                     'allowComment'  =>  'open' == $row['comment_status']? '1' : '0',
