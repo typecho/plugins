@@ -7,7 +7,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  * 
  * @package B3log for HacPai
  * @author DT27
- * @version 1.0.0
+ * @version 1.0.1
  * @link https://dt27.org/B3log-for-HacPai/
  */
 class B3logForHacPai_Plugin implements Typecho_Plugin_Interface

@@ -56,7 +56,6 @@ class B3logForHacPai_Action extends Typecho_Widget
                     'type' => 'comment',
                     'status' => 'approved',
                     'authorId' => $result->comment->isArticleAuthor?1:0,
-
                 );
                 //print_r($result->comment->articleid);
                 //$article = Typecho_Widget::widget('Widget_Users_Author@' . $this->cid, array('cid' => $result->comment->articleId));
