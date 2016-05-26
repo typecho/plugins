@@ -45,16 +45,17 @@ class B3logForHacPai_Action extends Typecho_Widget
             if ($post) {
                 $comment = array(
                     'cid' => $result->comment->articleId,
-                    'created' => Helper::options()->gmtTime,
+                    'created' => $result->comment->time,
                     'text' => $result->comment->content,
                     'author' => $result->comment->authorName,
                     'mail' => $result->comment->authorEmail,
                     'url' => $result->comment->authorURL,
-                    'agent' => $this->request->getAgent(),
-                    'ip' => $this->request->getIp(),
+                    'agent' => $result->comment->ua,//$this->request->getAgent(),
+                    'ip' => $result->comment->ip,//$this->request->getIp(),
                     'ownerId' => $post['authorId'],
                     'type' => 'comment',
                     'status' => 'approved',
+                    'authorId' => $result->comment->isArticleAuthor?1:0,
                 );
                 //print_r($result->comment->articleid);
                 //$article = Typecho_Widget::widget('Widget_Users_Author@' . $this->cid, array('cid' => $result->comment->articleId));
