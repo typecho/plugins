@@ -176,7 +176,7 @@ class WordpressToTypecho_Action extends Typecho_Widget implements Widget_Interfa
                     'cid'           =>  $row['ID'],
                     'title'         =>  $row['post_title'],
                     'slug'          =>  Typecho_Common::slugName(urldecode($row['post_name']), $row['ID'], 128),
-                    'created'       =>  strtotime($row['post_date_gmt']) + $gmtOffset,
+                    'created'       =>  strtotime($row['post_date_gmt']) + $gmtOffset > 0 ? strtotime($row['post_date_gmt']) + $gmtOffset : 0,
                     'modified'      =>  strtotime($row['post_modified_gmt']) + $gmtOffset,
                     'text'          =>  $row['post_content'],
                     'order'         =>  $row['menu_order'],
