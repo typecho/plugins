@@ -4,7 +4,7 @@
  * 
  * @package MathJax
  * @author mutoo
- * @version 1.0.0
+ * @version 1.0.1
  * @link http://blog.mutoo.im/mathjax-plugin.html
  */
 class MathJax implements Typecho_Plugin_Interface
@@ -58,6 +58,6 @@ class MathJax implements Typecho_Plugin_Interface
      * @return unknown
      */
     public static function footer() {
-        echo '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [[\'$\',\'$\'], [\'\\\\(\',\'\\\\)\']]}});</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>';
+        echo '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [[\'$\',\'$\'], [\'\\\\(\',\'\\\\)\']]}});</script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>';
     }
 }
