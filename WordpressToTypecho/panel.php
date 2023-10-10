@@ -48,11 +48,11 @@ include 'menu.php';
                 <form action="<?php $options->index('/action/wordpress-to-typecho'); ?>" method="post">
                     <?php _e('我们检测到了 WordPress 系统信息, 点击下方的按钮开始数据转换, 数据转换可能会耗时较长.'); ?>
                     <ul>
-                        <li><strong><?php echo $static['blogname']; ?></strong></li>
-                        <li><?php echo $static['blogdescription']; ?></li>
-                        <li><code><?php echo $static['siteurl']; ?></code></li>
+                        <li>网站名：<strong><?php echo $static['blogname']; ?></strong></li>
+                        <li>描述：<?php echo $static['blogdescription']; ?></li>
+                        <li>网址：<code><?php echo $static['siteurl']; ?></code></li>
                     </ul>
-                    <button type="submit" class="primary"><?php _e('开始数据转换 &raquo;'); ?></button>
+                    <button type="submit" class="btn primary"><?php _e('开始数据转换 &raquo;'); ?></button>
                 </form>
                 </div>
                 <?php else: ?>
